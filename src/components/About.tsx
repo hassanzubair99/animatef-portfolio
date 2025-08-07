@@ -38,6 +38,7 @@ export function About() {
                 alt="Portrait"
                 layout="fill"
                 objectFit="cover"
+                quality={100}
                 data-ai-hint="professional portrait"
                 className="scale-105"
               />

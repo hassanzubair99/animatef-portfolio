@@ -27,6 +27,7 @@ export function ProjectCard({ title, description, imgSrc, imgHint, tags, liveUrl
                         layout="fill"
                         objectFit="cover"
                         data-ai-hint={imgHint}
+                        quality={100}
                         className="transition-transform duration-500 group-hover:scale-110"
                     />
                 </div>
