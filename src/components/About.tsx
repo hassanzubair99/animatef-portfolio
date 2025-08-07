@@ -8,7 +8,7 @@ const skills = [
   'React', 'Next.js', 'TypeScript', 'Node.js', 'GraphQL', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'Figma', 'Docker'
 ];
 
-const defaultAboutMe = "I'm a passionate and creative full-stack developer with a love for building beautiful, intuitive, and performant web applications. With a background in design, I bridge the gap between aesthetics and functionality. My goal is to create digital experiences that are not only user-friendly but also memorable.";
+const defaultAboutMe = "I am Hassan Zubair, an ambitious IT Developer and AI Website Maker based in Karachi, Pakistan. With a passion for building modern, responsive, and animated websites, I specialize in technologies like React.js, Next.js, and Tailwind CSS. I also develop and customize websites using Odoo for small businesses. My skill set includes AI tool integration and website automation, allowing me to create smart, user-centric digital experiences. I’ve received recognition for both leadership and communication, highlighting my ability to work effectively in teams and deliver exceptional results.";
 const defaultProfilePic = "https://placehold.co/400x400.png";
 
 export function About() {
