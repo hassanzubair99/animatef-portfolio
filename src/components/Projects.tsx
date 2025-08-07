@@ -22,6 +22,15 @@ const defaultProjects = [
     liveUrl: "https://e-commerce-hack-hassan-1uyq.vercel.app/",
     githubUrl: "https://github.com/hassanzubair99/e-commerce-hack-hassan",
   },
+  {
+    title: "Crimson Stream",
+    description: "A feature-rich video streaming platform offering a seamless viewing experience. Browse and watch a diverse library of content with a modern and intuitive user interface.",
+    imgSrc: "https://i.ibb.co/kV0ptXhV/Screenshot-2025-08-08-022936.png",
+    imgHint: "video streaming platform",
+    tags: ["Next.js", "Streaming", "Vercel"],
+    liveUrl: "https://crimson-stream.vercel.app/",
+    githubUrl: "https://github.com/hassanzubair99/crimson-stream",
+  },
 ];
 
 export function Projects() {
@@ -52,5 +61,3 @@ export function Projects() {
     </section>
   );
 }
-
-    
