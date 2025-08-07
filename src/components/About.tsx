@@ -1,0 +1,46 @@
+import Image from 'next/image';
+import { Badge } from '@/components/ui/badge';
+
+const skills = [
+  'React', 'Next.js', 'TypeScript', 'Node.js', 'GraphQL', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'Figma', 'Docker'
+];
+
+export function About() {
+  return (
+    <section id="about" className="py-24 sm:py-32 bg-primary/20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
+          <div className="lg:col-span-2">
+            <div className="relative aspect-square rounded-full overflow-hidden w-4/5 lg:w-full mx-auto shadow-2xl">
+              <Image
+                src="https://placehold.co/400x400.png"
+                alt="Portrait"
+                layout="fill"
+                objectFit="cover"
+                data-ai-hint="professional portrait"
+                className="scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+            </div>
+          </div>
+          <div className="lg:col-span-3 text-center lg:text-left">
+            <h2 className="text-4xl md:text-5xl font-bold">About Me</h2>
+            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+              I'm a passionate and creative full-stack developer with a love for building beautiful, intuitive, and performant web applications. With a background in design, I bridge the gap between aesthetics and functionality. My goal is to create digital experiences that are not only user-friendly but also memorable.
+            </p>
+            <div className="mt-8">
+              <h3 className="text-2xl font-semibold mb-4">My Skills</h3>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                {skills.map(skill => (
+                  <Badge key={skill} className="text-sm px-4 py-2 bg-card hover:bg-card/80 border-primary transition-colors">
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
