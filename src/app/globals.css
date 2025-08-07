@@ -47,3 +47,9 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  .text-shadow {
+    text-shadow: 0 0 15px hsl(var(--accent));
+  }
+}
