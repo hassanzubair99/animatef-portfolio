@@ -37,7 +37,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex h-screen items-center justify-center bg-background px-4">
-      <Card className="w-full max-w-sm">
+      <Card className="w-full max-w-sm animate-fade-in-up">
         <form onSubmit={handleLogin}>
           <CardHeader>
             <CardTitle>Admin Access</CardTitle>
@@ -52,12 +52,13 @@ export default function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
+                className="focus:ring-accent focus:border-accent"
               />
             </div>
             {error && <p className="text-sm text-destructive">{error}</p>}
           </CardContent>
           <CardFooter>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full bg-accent hover:bg-accent/80 transition-transform duration-300 hover:scale-105">
               Login
             </Button>
           </CardFooter>
