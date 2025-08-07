@@ -9,6 +9,14 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 
+// Define the type for a project
+interface Project {
+  id: number;
+  title: string;
+  description: string;
+  imgSrc: string;
+}
+
 export default function AdminPage() {
   const router = useRouter();
   const { toast } = useToast();
@@ -20,12 +28,19 @@ export default function AdminPage() {
   const [profilePicUrl, setProfilePicUrl] = useState('');
 
   // Project state
-  const [projects, setProjects] = useState([
+  const [projects, setProjects] = useState<Project[]>([
     { id: 1, title: 'QuantumLeap CRM', description: 'A futuristic CRM platform designed to manage customer relations with predictive analytics and AI-powered insights.', imgSrc: '/placeholder-1.png' },
     { id: 2, title: 'NebulaStream', description: 'A decentralized video streaming service offering high-quality, buffer-free content delivery over a peer-to-peer network.', imgSrc: '/placeholder-2.png' },
     { id: 3, title: 'Aether E-commerce', description: 'An elegant and minimalist e-commerce store with a focus on user experience and seamless checkout process.', imgSrc: '/placeholder-3.png' },
     { id: 4, title: 'CodeScribe AI', description: 'An AI-powered documentation generator that automatically creates developer-friendly guides from your codebase.', imgSrc: '/placeholder-4.png' },
   ]);
+
+  // State for the new/edit project form
+  const [editingProject, setEditingProject] = useState<Project | null>(null);
+  const [projectTitle, setProjectTitle] = useState('');
+  const [projectDesc, setProjectDesc] = useState('');
+  const [projectImgUrl, setProjectImgUrl] = useState('');
+
 
   useEffect(() => {
     const authStatus = sessionStorage.getItem('isAdminAuthenticated');
@@ -44,7 +59,6 @@ export default function AdminPage() {
 
   const handleAboutMeSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd send this to your backend
     console.log('Updating About Me:', { aboutMeText, profilePicUrl });
     toast({
         title: 'About Me Updated!',
@@ -54,13 +68,67 @@ export default function AdminPage() {
   
   const handleProjectSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you'd send this to your backend
-    toast({
-        title: 'Project Added!',
-        description: 'Your new project has been added (frontend only).',
-    });
+    if (!projectTitle || !projectDesc) {
+        toast({
+            variant: 'destructive',
+            title: 'Missing Fields',
+            description: 'Please fill out all project fields.',
+        });
+        return;
+    }
+
+    if (editingProject) {
+        // Update existing project
+        setProjects(projects.map(p => p.id === editingProject.id ? { ...p, title: projectTitle, description: projectDesc, imgSrc: projectImgUrl } : p));
+        toast({
+            title: 'Project Updated!',
+            description: `"${projectTitle}" has been successfully updated.`,
+        });
+    } else {
+        // Add new project
+        const newProject: Project = {
+            id: Date.now(), // Use timestamp for unique ID
+            title: projectTitle,
+            description: projectDesc,
+            imgSrc: projectImgUrl || 'https://placehold.co/600x400.png',
+        };
+        setProjects([...projects, newProject]);
+        toast({
+            title: 'Project Added!',
+            description: `"${projectTitle}" has been added to your projects.`,
+        });
+    }
+    
+    // Reset form
+    setEditingProject(null);
+    setProjectTitle('');
+    setProjectDesc('');
+    setProjectImgUrl('');
   };
 
+  const handleEditClick = (project: Project) => {
+    setEditingProject(project);
+    setProjectTitle(project.title);
+    setProjectDesc(project.description);
+    setProjectImgUrl(project.imgSrc);
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  };
+  
+  const handleDeleteClick = (projectId: number, projectTitle: string) => {
+    setProjects(projects.filter(p => p.id !== projectId));
+    toast({
+        variant: 'destructive',
+        title: 'Project Deleted!',
+        description: `"${projectTitle}" has been removed.`,
+    });
+  };
+  
+  const handleCancelEdit = () => {
+    setEditingProject(null);
+    setProjectTitle('');
+    setProjectDesc('');
+    setProjectImgUrl('');
+  }
 
   if (loading || !isAuthenticated) {
     return (
@@ -123,27 +191,30 @@ export default function AdminPage() {
                 <div key={p.id} className="flex items-center justify-between p-3 bg-card rounded-md border">
                   <span>{p.title}</span>
                   <div className="space-x-2">
-                    <Button variant="outline" size="sm">Edit</Button>
-                    <Button variant="destructive" size="sm">Delete</Button>
+                    <Button variant="outline" size="sm" onClick={() => handleEditClick(p)}>Edit</Button>
+                    <Button variant="destructive" size="sm" onClick={() => handleDeleteClick(p.id, p.title)}>Delete</Button>
                   </div>
                 </div>
               ))}
             </div>
             <form onSubmit={handleProjectSubmit} className="space-y-6 pt-6 border-t">
-               <h3 className="font-semibold text-lg">Add New Project</h3>
+               <h3 className="font-semibold text-lg">{editingProject ? 'Edit Project' : 'Add New Project'}</h3>
                <div>
                   <Label htmlFor="project-title">Project Title</Label>
-                  <Input id="project-title" placeholder="My Awesome Project" className="mt-2" />
+                  <Input id="project-title" placeholder="My Awesome Project" className="mt-2" value={projectTitle} onChange={e => setProjectTitle(e.target.value)} />
                </div>
                <div>
                   <Label htmlFor="project-desc">Description</Label>
-                  <Textarea id="project-desc" placeholder="A short description..." rows={4} className="mt-2" />
+                  <Textarea id="project-desc" placeholder="A short description..." rows={4} className="mt-2" value={projectDesc} onChange={e => setProjectDesc(e.target.value)} />
                </div>
                <div>
                   <Label htmlFor="project-img-url">Project Image URL</Label>
-                  <Input id="project-img-url" type="text" placeholder="https://example.com/project-image.png" className="mt-2" />
+                  <Input id="project-img-url" type="text" placeholder="https://example.com/project-image.png" className="mt-2" value={projectImgUrl} onChange={e => setProjectImgUrl(e.target.value)} />
                </div>
-              <Button type="submit">Add Project</Button>
+              <div className="flex gap-4">
+                 <Button type="submit">{editingProject ? 'Update Project' : 'Add Project'}</Button>
+                 {editingProject && <Button type="button" variant="ghost" onClick={handleCancelEdit}>Cancel</Button>}
+              </div>
             </form>
           </CardContent>
         </Card>
