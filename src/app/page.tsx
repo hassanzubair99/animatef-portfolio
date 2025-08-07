@@ -6,15 +6,16 @@ import { IntroAnimation } from '@/components/IntroAnimation';
 import { Projects } from '@/components/Projects';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
+import { Code, Bot, Palette, Briefcase, DraftingCompass, Globe, User } from 'lucide-react';
 
 const roles = [
-  "Crafting Digital Universes",
-  "Hi, I am Hassan",
-  "I am a Web Developer",
-  "Odoo Developer",
-  "Web Designer",
-  "AI Web Builder",
-  "UI/UX Builder",
+  { text: "Crafting Digital Universes", icon: <Globe className="inline-block mb-2" size={64} /> },
+  { text: "Hi, I am Hassan", icon: <User className="inline-block mb-2" size={64} /> },
+  { text: "I am a Web Developer", icon: <Code className="inline-block mb-2" size={64} /> },
+  { text: "Odoo Developer", icon: <Briefcase className="inline-block mb-2" size={64} /> },
+  { text: "Web Designer", icon: <Palette className="inline-block mb-2" size={64} /> },
+  { text: "AI Web Builder", icon: <Bot className="inline-block mb-2" size={64} /> },
+  { text: "UI/UX Builder", icon: <DraftingCompass className="inline-block mb-2" size={64} /> },
 ];
 
 function TypingAnimation() {
@@ -36,9 +37,9 @@ function TypingAnimation() {
         setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
       }
     } else {
-      if (text.length < currentRole.length) {
+      if (text.length < currentRole.text.length) {
         timeout = setTimeout(() => {
-          setText(t => currentRole.slice(0, t.length + 1));
+          setText(t => currentRole.text.slice(0, t.length + 1));
         }, 150);
       } else {
         timeout = setTimeout(() => {
@@ -49,12 +50,19 @@ function TypingAnimation() {
 
     return () => clearTimeout(timeout);
   }, [text, isDeleting, roleIndex]);
+  
+  const currentIcon = roles[roleIndex].icon;
 
   return (
-    <h1 className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl text-shadow-strong">
-      {text}
-      <span className="animate-blink">|</span>
-    </h1>
+    <div className="flex flex-col items-center">
+      <div className="mb-4 h-16 w-16 text-accent animate-fade-in-up">
+        {currentIcon}
+      </div>
+      <h1 className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl text-shadow-strong">
+        {text}
+        <span className="animate-blink">|</span>
+      </h1>
+    </div>
   );
 }
 
