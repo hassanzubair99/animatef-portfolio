@@ -4,35 +4,35 @@
 
 @layer base {
   :root {
-    --background: 0 0% 10%; /* #1A1A1A */
+    --background: 0 0% 4%; /* Near black */
     --foreground: 0 0% 98%; /* almost white */
 
-    --card: 0 0% 12%;
+    --card: 0 0% 8%;
     --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 10%;
+    --popover: 0 0% 4%;
     --popover-foreground: 0 0% 98%;
 
-    --primary: 0 0% 20%; /* #333333 */
+    --primary: 0 0% 15%; /* Darker Gray */
     --primary-foreground: 0 0% 98%;
 
-    --secondary: 0 0% 15%;
+    --secondary: 0 0% 12%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 15%;
+    --muted: 0 0% 12%;
     --muted-foreground: 0 0% 63.9%;
 
-    --accent: 300 50% 50%; /* #BF40BF */
+    --accent: 250 80% 60%; /* Vibrant Blue/Purple */
     --accent-foreground: 0 0% 98%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 300 50% 50%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
+    --ring: 250 80% 60%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
   }
 }
 
@@ -50,6 +50,9 @@
 
 @layer utilities {
   .text-shadow {
-    text-shadow: 0 0 15px hsl(var(--accent));
+    text-shadow: 0 0 15px hsl(var(--accent) / 0.8);
+  }
+  .text-shadow-strong {
+    text-shadow: 0 0 25px hsl(var(--accent)), 0 0 5px hsl(var(--foreground) / 0.5);
   }
 }
