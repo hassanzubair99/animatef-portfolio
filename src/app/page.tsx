@@ -12,7 +12,6 @@ export default function Home() {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    // This check is to prevent animation on every fast refresh during development
     if (sessionStorage.getItem('introShown')) {
       setLoading(false);
       setShowContent(true);
@@ -22,12 +21,10 @@ export default function Home() {
 
   const handleAnimationComplete = () => {
     setShowContent(true);
-    // Use a timeout to allow the content to render before hiding the loader
-    // This prevents a "flicker"
     setTimeout(() => {
         setLoading(false);
         sessionStorage.setItem('introShown', 'true');
-    }, 500); // match this to fade-in animation duration
+    }, 500); 
   };
 
   return (

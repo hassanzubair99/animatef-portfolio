@@ -3,7 +3,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 
 export const metadata: Metadata = {
-  title: 'Midnight Canvas',
+  title: 'M.HASSAN ZUBAIR',
   description: 'A sleek, dark-themed portfolio website.',
 };
 

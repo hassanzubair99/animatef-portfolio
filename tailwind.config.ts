@@ -91,6 +91,10 @@ export default {
                 transform: 'rotate(360deg) scale(1.1)',
             },
         },
+        'text-glow': {
+          '0%, 100%': { 'text-shadow': '0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent))' },
+          '50%': { 'text-shadow': '0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent))' },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -99,6 +103,7 @@ export default {
         'fade-in-up': 'fade-in-up 0.8s ease-out',
         'welcome': 'welcome 1.5s cubic-bezier(0.25, 1, 0.5, 1)',
         'spin-slow-very': 'spin-slow-very 120s linear infinite alternate',
+        'text-glow': 'text-glow 2s ease-in-out infinite alternate',
       },
     },
   },

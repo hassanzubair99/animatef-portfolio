@@ -109,7 +109,7 @@ export function Contact() {
                 <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Linkedin size={28} /></a>
                 <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Twitter size={28} /></a>
             </div>
-             <p className="text-sm text-muted-foreground mt-12">&copy; {new Date().getFullYear()} Midnight Canvas. All Rights Reserved.</p>
+             <p className="text-sm text-muted-foreground mt-12">&copy; {new Date().getFullYear()} M.HASSAN ZUBAIR. All Rights Reserved.</p>
           </div>
         </div>
       </div>
