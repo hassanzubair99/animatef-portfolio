@@ -94,6 +94,10 @@ export default {
         'text-glow': {
           '0%, 100%': { 'text-shadow': '0 0 5px hsl(var(--accent)), 0 0 10px hsl(var(--accent))' },
           '50%': { 'text-shadow': '0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent))' },
+        },
+        'welcome-glow': {
+            '0%, 100%': { 'text-shadow': '0 0 15px hsl(var(--accent)), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '50%': { 'text-shadow': '0 0 15px #a855f7, 0 0 5px hsl(var(--foreground) / 0.5)' },
         }
       },
       animation: {
@@ -104,6 +108,7 @@ export default {
         'welcome': 'welcome 1.5s cubic-bezier(0.25, 1, 0.5, 1)',
         'spin-slow-very': 'spin-slow-very 120s linear infinite alternate',
         'text-glow': 'text-glow 2s ease-in-out infinite alternate',
+        'welcome-glow': 'welcome-glow 3s ease-in-out infinite alternate',
       },
     },
   },
