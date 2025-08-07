@@ -16,7 +16,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ title, description, imgSrc, imgHint, tags, liveUrl, githubUrl }: ProjectCardProps) {
   return (
-    <div className="group relative rounded-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20">
+    <div className="group relative rounded-lg overflow-hidden transition-all duration-500 hover:scale-105 hover:shadow-2xl hover:shadow-accent/20 h-full">
         <div className="absolute -inset-1 bg-gradient-to-br from-accent to-purple-600 rounded-lg blur-xl opacity-0 group-hover:opacity-30 transition duration-500"></div>
         <Card className="relative bg-card border-2 border-primary hover:border-accent/50 transition-colors duration-300 h-full flex flex-col">
             <CardHeader>
