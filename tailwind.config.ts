@@ -1,4 +1,5 @@
 import type {Config} from 'tailwindcss';
+const plugin = require('tailwindcss/plugin');
 
 export default {
   darkMode: ['class'],
@@ -103,6 +104,10 @@ export default {
             '66%': { 'text-shadow': '0 0 15px hsl(240, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
             '83%': { 'text-shadow': '0 0 15px hsl(300, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
             '100%': { 'text-shadow': '0 0 15px hsl(360, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+        },
+        'blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
         }
       },
       animation: {
@@ -114,10 +119,22 @@ export default {
         'spin-slow-very': 'spin-slow-very 120s linear infinite alternate',
         'text-glow': 'text-glow 2s ease-in-out infinite alternate',
         'welcome-glow': 'welcome-glow 4s linear infinite',
+        'blink': 'blink 1s step-end infinite',
       },
     },
   },
   plugins: [
     require('tailwindcss-animate'),
+    plugin(function ({ addUtilities, theme }: { addUtilities: any, theme: any}) {
+      const newUtilities = {
+        '.text-shadow': {
+          textShadow: '0 0 15px hsl(var(--accent) / 0.8)',
+        },
+        '.text-shadow-strong': {
+          textShadow: '0 0 25px hsl(var(--accent)), 0 0 5px hsl(var(--foreground) / 0.5)',
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']);
+    }),
   ],
 } satisfies Config;

@@ -7,6 +7,58 @@ import { Projects } from '@/components/Projects';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 
+const roles = [
+  "Crafting Digital Universes",
+  "Hi, I am Hassan",
+  "I am a Web Developer",
+  "Odoo Developer",
+  "Web Designer",
+  "AI Web Builder",
+  "UI/UX Builder",
+];
+
+function TypingAnimation() {
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  
+  useEffect(() => {
+    const currentRole = roles[roleIndex];
+    let timeout: NodeJS.Timeout;
+
+    if (isDeleting) {
+      if (text.length > 0) {
+        timeout = setTimeout(() => {
+          setText(t => t.slice(0, -1));
+        }, 100);
+      } else {
+        setIsDeleting(false);
+        setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+      }
+    } else {
+      if (text.length < currentRole.length) {
+        timeout = setTimeout(() => {
+          setText(t => currentRole.slice(0, t.length + 1));
+        }, 150);
+      } else {
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 3000); // Wait 3 seconds before deleting
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [text, isDeleting, roleIndex]);
+
+  return (
+    <h1 className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl text-shadow-strong">
+      {text}
+      <span className="animate-blink">|</span>
+    </h1>
+  );
+}
+
+
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
@@ -46,9 +98,7 @@ export default function Home() {
               />
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
-                <h1 className="text-5xl font-bold tracking-tight sm:text-7xl lg:text-8xl text-shadow-strong">
-                    Crafting Digital Universes
-                </h1>
+                <TypingAnimation />
                 <p className="mt-6 text-lg leading-8 text-muted-foreground max-w-3xl mx-auto">
                     A passionate developer creating modern, responsive, and user-friendly web applications. Explore my work and let's build something amazing together.
                 </p>
