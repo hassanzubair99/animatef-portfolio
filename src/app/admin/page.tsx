@@ -15,7 +15,20 @@ interface Project {
   title: string;
   description: string;
   imgSrc: string;
+  liveUrl?: string;
+  githubUrl?: string;
+  tags: string[];
+  imgHint: string;
 }
+
+const defaultProjects: Project[] = [
+    { id: 1, title: 'QuantumLeap CRM', description: 'A futuristic CRM platform designed to manage customer relations with predictive analytics and AI-powered insights.', imgSrc: 'https://placehold.co/600x400.png', tags: ["Next.js", "TailwindCSS", "Prisma", "AI"], liveUrl: "#", githubUrl: "#", imgHint: "abstract tech" },
+    { id: 2, title: 'NebulaStream', description: 'A decentralized video streaming service offering high-quality, buffer-free content delivery over a peer-to-peer network.', imgSrc: 'https://placehold.co/600x400.png', tags: ["React", "Web3", "IPFS", "GraphQL"], liveUrl: "#", githubUrl: "#", imgHint: "galaxy stream" },
+    { id: 3, title: 'Aether E-commerce', description: 'An elegant and minimalist e-commerce store with a focus on user experience and seamless checkout process.', imgSrc: 'https://placehold.co/600x400.png', tags: ["Shopify", "Liquid", "Animations", "UX"], liveUrl: "#", githubUrl: "#", imgHint: "minimalist shopping" },
+    { id: 4, title: 'CodeScribe AI', description: 'An AI-powered documentation generator that automatically creates developer-friendly guides from your codebase.', imgSrc: 'https://placehold.co/600x400.png', tags: ["Python", "NLP", "React", "Docker"], liveUrl: "#", githubUrl: "#", imgHint: "code documentation" },
+];
+
+const defaultAboutMe = "I'm a passionate and creative full-stack developer with a love for building beautiful, intuitive, and performant web applications. With a background in design, I bridge the gap between aesthetics and functionality. My goal is to create digital experiences that are not only user-friendly but also memorable.";
 
 export default function AdminPage() {
   const router = useRouter();
@@ -24,16 +37,11 @@ export default function AdminPage() {
   const [loading, setLoading] = useState(true);
 
   // About Me state
-  const [aboutMeText, setAboutMeText] = useState("I'm a passionate and creative full-stack developer with a love for building beautiful, intuitive, and performant web applications. With a background in design, I bridge the gap between aesthetics and functionality. My goal is to create digital experiences that are not only user-friendly but also memorable.");
+  const [aboutMeText, setAboutMeText] = useState("");
   const [profilePicUrl, setProfilePicUrl] = useState('');
 
   // Project state
-  const [projects, setProjects] = useState<Project[]>([
-    { id: 1, title: 'QuantumLeap CRM', description: 'A futuristic CRM platform designed to manage customer relations with predictive analytics and AI-powered insights.', imgSrc: '/placeholder-1.png' },
-    { id: 2, title: 'NebulaStream', description: 'A decentralized video streaming service offering high-quality, buffer-free content delivery over a peer-to-peer network.', imgSrc: '/placeholder-2.png' },
-    { id: 3, title: 'Aether E-commerce', description: 'An elegant and minimalist e-commerce store with a focus on user experience and seamless checkout process.', imgSrc: '/placeholder-3.png' },
-    { id: 4, title: 'CodeScribe AI', description: 'An AI-powered documentation generator that automatically creates developer-friendly guides from your codebase.', imgSrc: '/placeholder-4.png' },
-  ]);
+  const [projects, setProjects] = useState<Project[]>([]);
 
   // State for the new/edit project form
   const [editingProject, setEditingProject] = useState<Project | null>(null);
@@ -46,6 +54,15 @@ export default function AdminPage() {
     const authStatus = sessionStorage.getItem('isAdminAuthenticated');
     if (authStatus === 'true') {
       setIsAuthenticated(true);
+      // Load data from localStorage
+      const storedAboutMe = localStorage.getItem('aboutMeText');
+      const storedProfilePic = localStorage.getItem('profilePicUrl');
+      const storedProjects = localStorage.getItem('projects');
+      
+      setAboutMeText(storedAboutMe || defaultAboutMe);
+      setProfilePicUrl(storedProfilePic || '');
+      setProjects(storedProjects ? JSON.parse(storedProjects) : defaultProjects);
+
     } else {
       router.push('/admin/login');
     }
@@ -59,10 +76,11 @@ export default function AdminPage() {
 
   const handleAboutMeSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Updating About Me:', { aboutMeText, profilePicUrl });
+    localStorage.setItem('aboutMeText', aboutMeText);
+    localStorage.setItem('profilePicUrl', profilePicUrl);
     toast({
         title: 'About Me Updated!',
-        description: 'Your changes have been saved (frontend only).',
+        description: 'Your changes have been saved.',
     });
   };
   
@@ -76,10 +94,12 @@ export default function AdminPage() {
         });
         return;
     }
+    
+    let updatedProjects;
 
     if (editingProject) {
         // Update existing project
-        setProjects(projects.map(p => p.id === editingProject.id ? { ...p, title: projectTitle, description: projectDesc, imgSrc: projectImgUrl } : p));
+        updatedProjects = projects.map(p => p.id === editingProject.id ? { ...p, title: projectTitle, description: projectDesc, imgSrc: projectImgUrl } : p);
         toast({
             title: 'Project Updated!',
             description: `"${projectTitle}" has been successfully updated.`,
@@ -91,13 +111,18 @@ export default function AdminPage() {
             title: projectTitle,
             description: projectDesc,
             imgSrc: projectImgUrl || 'https://placehold.co/600x400.png',
+            tags: [], // Default empty tags
+            imgHint: 'custom project'
         };
-        setProjects([...projects, newProject]);
+        updatedProjects = [...projects, newProject];
         toast({
             title: 'Project Added!',
             description: `"${projectTitle}" has been added to your projects.`,
         });
     }
+    
+    setProjects(updatedProjects);
+    localStorage.setItem('projects', JSON.stringify(updatedProjects));
     
     // Reset form
     setEditingProject(null);
@@ -115,7 +140,9 @@ export default function AdminPage() {
   };
   
   const handleDeleteClick = (projectId: number, projectTitle: string) => {
-    setProjects(projects.filter(p => p.id !== projectId));
+    const updatedProjects = projects.filter(p => p.id !== projectId);
+    setProjects(updatedProjects);
+    localStorage.setItem('projects', JSON.stringify(updatedProjects));
     toast({
         variant: 'destructive',
         title: 'Project Deleted!',
@@ -187,7 +214,7 @@ export default function AdminPage() {
           <CardContent>
              <div className="space-y-4 mb-8">
               <h3 className="font-semibold text-lg">Existing Projects</h3>
-              {projects.map(p => (
+              {projects.length > 0 ? projects.map(p => (
                 <div key={p.id} className="flex items-center justify-between p-3 bg-card rounded-md border">
                   <span>{p.title}</span>
                   <div className="space-x-2">
@@ -195,7 +222,7 @@ export default function AdminPage() {
                     <Button variant="destructive" size="sm" onClick={() => handleDeleteClick(p.id, p.title)}>Delete</Button>
                   </div>
                 </div>
-              ))}
+              )) : <p className="text-muted-foreground">No projects yet.</p>}
             </div>
             <form onSubmit={handleProjectSubmit} className="space-y-6 pt-6 border-t">
                <h3 className="font-semibold text-lg">{editingProject ? 'Edit Project' : 'Add New Project'}</h3>

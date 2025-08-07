@@ -1,6 +1,9 @@
+"use client";
+
+import React, { useState, useEffect } from 'react';
 import { ProjectCard } from './ProjectCard';
 
-const projects = [
+const defaultProjects = [
   {
     title: "QuantumLeap CRM",
     description: "A futuristic CRM platform designed to manage customer relations with predictive analytics and AI-powered insights.",
@@ -40,6 +43,15 @@ const projects = [
 ];
 
 export function Projects() {
+  const [projects, setProjects] = useState(defaultProjects);
+
+  useEffect(() => {
+    const storedProjects = localStorage.getItem('projects');
+    if (storedProjects) {
+      setProjects(JSON.parse(storedProjects));
+    }
+  }, []);
+
   return (
     <section id="projects" className="py-24 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
