@@ -13,6 +13,15 @@ const defaultProjects = [
     liveUrl: "https://resume-builder-hassan.vercel.app/",
     githubUrl: "https://github.com/hassanzubair99/resume-builder-hassan",
   },
+  {
+    title: "BANDAGE - E-COMMERCE",
+    description: "Welcome to Bandage, where fashion meets thoughtful design and user-friendly experience. Our Summer 2020 drop highlights standout collections for Men, Women, Accessories, and Kids, each built around a fusion of bold Graphic Design and refined aesthetics. Discover our Editor's Picks and Bestseller Products, curated to inspire confidence and timeless style.",
+    imgSrc: "https://placehold.co/600x400.png",
+    imgHint: "ecommerce fashion",
+    tags: ["E-commerce", "React", "Next.js"],
+    liveUrl: "https://e-commerce-hack-hassan-1uyq.vercel.app/",
+    githubUrl: "https://github.com/hassanzubair99/e-commerce-hack-hassan",
+  },
 ];
 
 export function Projects() {
