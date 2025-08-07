@@ -15,7 +15,7 @@ export default function AdminPage() {
 
   // About Me state
   const [aboutMeText, setAboutMeText] = useState("I'm a passionate and creative full-stack developer with a love for building beautiful, intuitive, and performant web applications. With a background in design, I bridge the gap between aesthetics and functionality. My goal is to create digital experiences that are not only user-friendly but also memorable.");
-  const [profilePic, setProfilePic] = useState<File | null>(null);
+  const [profilePicUrl, setProfilePicUrl] = useState('');
 
   // Project state
   const [projects, setProjects] = useState([
@@ -43,7 +43,7 @@ export default function AdminPage() {
   const handleAboutMeSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, you'd send this to your backend
-    console.log('Updating About Me:', { aboutMeText, profilePic });
+    console.log('Updating About Me:', { aboutMeText, profilePicUrl });
     alert('About Me section updated! (Frontend only)');
   };
   
@@ -88,12 +88,13 @@ export default function AdminPage() {
                 />
               </div>
               <div>
-                <Label htmlFor="profile-pic">Change Profile Picture</Label>
+                <Label htmlFor="profile-pic-url">Profile Picture URL</Label>
                 <Input 
-                  id="profile-pic"
-                  type="file"
-                  accept="image/*"
-                  onChange={(e) => setProfilePic(e.target.files ? e.target.files[0] : null)}
+                  id="profile-pic-url"
+                  type="text"
+                  placeholder="https://example.com/image.png"
+                  value={profilePicUrl}
+                  onChange={(e) => setProfilePicUrl(e.target.value)}
                   className="mt-2"
                 />
               </div>
@@ -131,8 +132,8 @@ export default function AdminPage() {
                   <Textarea id="project-desc" placeholder="A short description..." rows={4} className="mt-2" />
                </div>
                <div>
-                  <Label htmlFor="project-img">Project Image</Label>
-                  <Input id="project-img" type="file" accept="image/*" className="mt-2" />
+                  <Label htmlFor="project-img-url">Project Image URL</Label>
+                  <Input id="project-img-url" type="text" placeholder="https://example.com/project-image.png" className="mt-2" />
                </div>
               <Button type="submit">Add Project</Button>
             </form>
