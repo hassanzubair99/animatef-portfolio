@@ -7,9 +7,11 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
+import { useToast } from '@/hooks/use-toast';
 
 export default function AdminPage() {
   const router = useRouter();
+  const { toast } = useToast();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(true);
 
@@ -44,13 +46,19 @@ export default function AdminPage() {
     e.preventDefault();
     // In a real app, you'd send this to your backend
     console.log('Updating About Me:', { aboutMeText, profilePicUrl });
-    alert('About Me section updated! (Frontend only)');
+    toast({
+        title: 'About Me Updated!',
+        description: 'Your changes have been saved (frontend only).',
+    });
   };
   
   const handleProjectSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // In a real app, you'd send this to your backend
-    alert('Project added! (Frontend only)');
+    toast({
+        title: 'Project Added!',
+        description: 'Your new project has been added (frontend only).',
+    });
   };
 
 
