@@ -40,6 +40,15 @@ const defaultProjects = [
     liveUrl: "#",
     githubUrl: "#",
   },
+  {
+    title: "Resume Builder",
+    description: "An intuitive web application that helps users create professional and modern resumes with ease. Features customizable templates and a user-friendly interface.",
+    imgSrc: "https://i.ibb.co/p95QcnV/Screenshot-2025-08-07-233900.png",
+    imgHint: "resume builder app",
+    tags: ["React", "Next.js", "Vercel", "Web App"],
+    liveUrl: "https://resume-builder-hassan.vercel.app/",
+    githubUrl: "https://github.com/hassanzubair99/resume-builder-hassan",
+  },
 ];
 
 export function Projects() {
