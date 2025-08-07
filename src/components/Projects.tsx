@@ -5,42 +5,6 @@ import { ProjectCard } from './ProjectCard';
 
 const defaultProjects = [
   {
-    title: "QuantumLeap CRM",
-    description: "A futuristic CRM platform designed to manage customer relations with predictive analytics and AI-powered insights.",
-    imgSrc: "https://placehold.co/600x400.png",
-    imgHint: "abstract tech",
-    tags: ["Next.js", "TailwindCSS", "Prisma", "AI"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "NebulaStream",
-    description: "A decentralized video streaming service offering high-quality, buffer-free content delivery over a peer-to-peer network.",
-    imgSrc: "https://placehold.co/600x400.png",
-    imgHint: "galaxy stream",
-    tags: ["React", "Web3", "IPFS", "GraphQL"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
-    title: "Aether E-commerce",
-    description: "An elegant and minimalist e-commerce store with a focus on user experience and seamless checkout process.",
-    imgSrc: "https://placehold.co/600x400.png",
-    imgHint: "minimalist shopping",
-    tags: ["Shopify", "Liquid", "Animations", "UX"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-    {
-    title: "CodeScribe AI",
-    description: "An AI-powered documentation generator that automatically creates developer-friendly guides from your codebase.",
-    imgSrc: "https://placehold.co/600x400.png",
-    imgHint: "code documentation",
-    tags: ["Python", "NLP", "React", "Docker"],
-    liveUrl: "#",
-    githubUrl: "#",
-  },
-  {
     title: "Resume Builder",
     description: "An intuitive web application that helps users create professional and modern resumes with ease. Features customizable templates and a user-friendly interface.",
     imgSrc: "https://i.ibb.co/p95QcnV/Screenshot-2025-08-07-233900.png",

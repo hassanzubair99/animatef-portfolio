@@ -22,10 +22,6 @@ interface Project {
 }
 
 const defaultProjects: Project[] = [
-    { id: 1, title: 'QuantumLeap CRM', description: 'A futuristic CRM platform designed to manage customer relations with predictive analytics and AI-powered insights.', imgSrc: 'https://placehold.co/600x400.png', tags: ["Next.js", "TailwindCSS", "Prisma", "AI"], liveUrl: "#", githubUrl: "#", imgHint: "abstract tech" },
-    { id: 2, title: 'NebulaStream', description: 'A decentralized video streaming service offering high-quality, buffer-free content delivery over a peer-to-peer network.', imgSrc: 'https://placehold.co/600x400.png', tags: ["React", "Web3", "IPFS", "GraphQL"], liveUrl: "#", githubUrl: "#", imgHint: "galaxy stream" },
-    { id: 3, title: 'Aether E-commerce', description: 'An elegant and minimalist e-commerce store with a focus on user experience and seamless checkout process.', imgSrc: 'https://placehold.co/600x400.png', tags: ["Shopify", "Liquid", "Animations", "UX"], liveUrl: "#", githubUrl: "#", imgHint: "minimalist shopping" },
-    { id: 4, title: 'CodeScribe AI', description: 'An AI-powered documentation generator that automatically creates developer-friendly guides from your codebase.', imgSrc: 'https://placehold.co/600x400.png', tags: ["Python", "NLP", "React", "Docker"], liveUrl: "#", githubUrl: "#", imgHint: "code documentation" },
     { id: 5, title: 'Resume Builder', description: 'An intuitive web application that helps users create professional and modern resumes with ease. Features customizable templates and a user-friendly interface.', imgSrc: 'https://i.ibb.co/p95QcnV/Screenshot-2025-08-07-233900.png', tags: ["React", "Next.js", "Vercel", "Web App"], liveUrl: "https://resume-builder-hassan.vercel.app/", githubUrl: "https://github.com/hassanzubair99/resume-builder-hassan", imgHint: "resume builder app" },
 ];
 
