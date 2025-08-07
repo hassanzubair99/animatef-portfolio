@@ -96,8 +96,13 @@ export default {
           '50%': { 'text-shadow': '0 0 10px hsl(var(--accent)), 0 0 20px hsl(var(--accent))' },
         },
         'welcome-glow': {
-            '0%, 100%': { 'text-shadow': '0 0 15px hsl(var(--accent)), 0 0 5px hsl(var(--foreground) / 0.5)' },
-            '50%': { 'text-shadow': '0 0 15px #a855f7, 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '0%': { 'text-shadow': '0 0 15px hsl(0, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '16%': { 'text-shadow': '0 0 15px hsl(60, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '33%': { 'text-shadow': '0 0 15px hsl(120, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '50%': { 'text-shadow': '0 0 15px hsl(180, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '66%': { 'text-shadow': '0 0 15px hsl(240, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '83%': { 'text-shadow': '0 0 15px hsl(300, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
+            '100%': { 'text-shadow': '0 0 15px hsl(360, 100%, 50%), 0 0 5px hsl(var(--foreground) / 0.5)' },
         }
       },
       animation: {
@@ -108,7 +113,7 @@ export default {
         'welcome': 'welcome 1.5s cubic-bezier(0.25, 1, 0.5, 1)',
         'spin-slow-very': 'spin-slow-very 120s linear infinite alternate',
         'text-glow': 'text-glow 2s ease-in-out infinite alternate',
-        'welcome-glow': 'welcome-glow 3s ease-in-out infinite alternate',
+        'welcome-glow': 'welcome-glow 4s linear infinite',
       },
     },
   },
