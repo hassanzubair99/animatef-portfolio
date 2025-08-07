@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import { ThemeToggle } from './ThemeToggle';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = React.useState(false);
@@ -22,7 +23,7 @@ export function Header() {
           <a href="#" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-accent to-purple-400 animate-text-glow">
             M.HASSAN ZUBAIR
           </a>
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             <a href="#projects" className="text-lg font-medium text-foreground/80 hover:text-accent transition-colors duration-300 hover:text-shadow">
               Projects
             </a>
@@ -32,6 +33,7 @@ export function Header() {
             <a href="#contact" className="text-lg font-medium text-foreground/80 hover:text-accent transition-colors duration-300 hover:text-shadow">
               Contact
             </a>
+            <ThemeToggle />
           </nav>
         </div>
       </div>
