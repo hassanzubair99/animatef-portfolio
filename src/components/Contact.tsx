@@ -105,9 +105,9 @@ export function Contact() {
           <div className="mt-16 text-center">
             <p className="text-muted-foreground">Or connect with me on social media</p>
             <div className="flex justify-center gap-6 mt-6">
-                <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Github size={28} /></a>
-                <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Linkedin size={28} /></a>
-                <a href="#" className="text-muted-foreground hover:text-accent transition-colors"><Twitter size={28} /></a>
+                <a href="https://github.com/hassanzubair99" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors"><Github size={28} /></a>
+                <a href="https://www.linkedin.com/in/codewith-hassan-300b8b285/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors"><Linkedin size={28} /></a>
+                <a href="https://x.com/codewithhassan7" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors"><Twitter size={28} /></a>
             </div>
              <p className="text-sm text-muted-foreground mt-12">&copy; {new Date().getFullYear()} M.HASSAN ZUBAIR. All Rights Reserved.</p>
           </div>
