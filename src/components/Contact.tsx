@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Phone, MapPin } from "lucide-react";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -108,6 +108,20 @@ export function Contact() {
                 <a href="https://github.com/hassanzubair99" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors"><Github size={28} /></a>
                 <a href="https://www.linkedin.com/in/codewith-hassan-300b8b285/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors"><Linkedin size={28} /></a>
                 <a href="https://x.com/codewithhassan7" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-accent transition-colors"><Twitter size={28} /></a>
+            </div>
+            <div className="mt-12 space-y-4 text-muted-foreground">
+              <a href="mailto:hassanzubair4243@gmail.com" className="flex items-center justify-center gap-3 hover:text-accent transition-colors">
+                <Mail size={20} />
+                <span>hassanzubair4243@gmail.com</span>
+              </a>
+              <a href="tel:+92305965670" className="flex items-center justify-center gap-3 hover:text-accent transition-colors">
+                <Phone size={20} />
+                <span>+92 305 965 6770</span>
+              </a>
+              <div className="flex items-center justify-center gap-3">
+                <MapPin size={20} />
+                <span>Karachi, Pakistan</span>
+              </div>
             </div>
              <p className="text-sm text-muted-foreground mt-12">&copy; {new Date().getFullYear()} M.HASSAN ZUBAIR. All Rights Reserved.</p>
           </div>
