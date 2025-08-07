@@ -9,7 +9,7 @@ const skills = [
 ];
 
 const defaultAboutMe = "I am Hassan Zubair, an ambitious IT Developer and AI Website Maker based in Karachi, Pakistan. With a passion for building modern, responsive, and animated websites, I specialize in technologies like React.js, Next.js, and Tailwind CSS. I also develop and customize websites using Odoo for small businesses. My skill set includes AI tool integration and website automation, allowing me to create smart, user-centric digital experiences. I’ve received recognition for both leadership and communication, highlighting my ability to work effectively in teams and deliver exceptional results.";
-const defaultProfilePic = "https://i.ibb.co/TqcxYPNT/EQYG2889.jpg";
+const defaultProfilePic = "https://i.ibb.co/fGtmrx7g/EQYG2889-1.png";
 
 export function About() {
   const [aboutMeText, setAboutMeText] = useState(defaultAboutMe);
