@@ -24,7 +24,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-   webpack: (config) => {
+   webpack: (config, { isServer }) => {
+    // Exclude three.js and related libraries from server-side rendering
+    if (isServer) {
+      config.externals.push('three', '@react-three/fiber', 'lamina', 'gsap');
+    }
+
     config.externals.push({
       'supports-color': 'supports-color',
     });
