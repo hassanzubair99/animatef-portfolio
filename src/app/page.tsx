@@ -1,13 +1,15 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 import { Header } from '@/components/Header';
 import { IntroAnimation } from '@/components/IntroAnimation';
 import { Projects } from '@/components/Projects';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Code, Bot, Palette, Briefcase, DraftingCompass, Globe, User } from 'lucide-react';
-import Silk from '@/components/Silk';
+
+const Silk = dynamic(() => import('@/components/Silk'), { ssr: false });
 
 const roles = [
   { text: "Crafting Digital Universes", icon: <Globe className="inline-block mb-2" size={64} /> },
