@@ -114,9 +114,9 @@ export function Contact() {
                 <Mail size={20} />
                 <span>hassanzubair4243@gmail.com</span>
               </a>
-              <a href="tel:+92305965670" className="flex items-center justify-center gap-3 hover:text-accent transition-colors">
+              <a href="tel:+923705965670" className="flex items-center justify-center gap-3 hover:text-accent transition-colors">
                 <Phone size={20} />
-                <span>+92 305 965 6770</span>
+                <span>+92 370 596 5670</span>
               </a>
               <div className="flex items-center justify-center gap-3">
                 <MapPin size={20} />
@@ -130,3 +130,5 @@ export function Contact() {
     </footer>
   );
 }
+
+    
