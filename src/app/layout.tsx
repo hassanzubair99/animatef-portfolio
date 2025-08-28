@@ -2,6 +2,7 @@ import type {Metadata} from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { ThemeProvider } from '@/components/ThemeProvider';
+import ClickSpark from '@/components/ClickSpark';
 
 export const metadata: Metadata = {
   title: 'M.HASSAN ZUBAIR',
@@ -27,7 +28,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ClickSpark>
+            {children}
+          </ClickSpark>
           <Toaster />
         </ThemeProvider>
       </body>
