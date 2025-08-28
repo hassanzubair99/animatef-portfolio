@@ -27,6 +27,7 @@ const defaultProjects: Project[] = [
     { id: 7, title: 'Crimson Stream', description: 'A feature-rich video streaming platform offering a seamless viewing experience. Browse and watch a diverse library of content with a modern and intuitive user interface.', imgSrc: 'https://i.ibb.co/kV0ptXhV/Screenshot-2025-08-08-022936.png', tags: ["Next.js", "Streaming", "Vercel"], liveUrl: "https://crimson-stream.vercel.app/", githubUrl: "https://github.com/hassanzubair99/crimson-stream", imgHint: "video streaming platform" },
     { id: 8, title: 'Guardian Angle', description: 'A modern landing page with a clean and professional design, showcasing key features and user testimonials in a visually appealing layout.', imgSrc: 'https://i.ibb.co/93b9PdYy/Screenshot-2025-08-08-150238.png', tags: ["Landing Page", "Next.js", "Vercel"], liveUrl: "https://gurdian-angle.vercel.app/", githubUrl: "https://github.com/hassanzubair99/gurdian-angle", imgHint: "guardian angle landing page" },
     { id: 9, title: 'TaskCraft 3D', description: 'TaskCraft 3D brings your to-do list to life with an immersive, animated interface. Experience the next dimension of productivity with interactive visuals and a gamified approach to task management.', imgSrc: 'https://i.ibb.co/M5P7DvHh/Screenshot-2025-08-28-180916.png', tags: ["Productivity", "3D", "Next.js"], liveUrl: "https://todolist-animated.vercel.app/", githubUrl: "https://github.com/hassanzubair99/TODOLIST-ANIMATED", imgHint: "productivity app" },
+    { id: 10, title: 'Culinaria', description: 'Culinaria is an inviting, animated recipe discovery platform that offers a visually immersive way to explore culinary delights. Leveraging vivid imagery and a clean, intuitive layout, the app makes browsing and selecting recipes a seamless—and delightful—experience.', imgSrc: 'https://i.ibb.co/fDYsCq3/Screenshot-2024-08-30-141221.png', tags: ["React", "Next.js", "Recipe App"], liveUrl: "https://recipies-jade.vercel.app/", githubUrl: "https://github.com/hassanzubair99/RECIPIES", imgHint: "recipe app" },
 ];
 
 const defaultAboutMe = "I am Hassan Zubair, an ambitious IT Developer and AI Website Maker based in Karachi, Pakistan. With a passion for building modern, responsive, and animated websites, I specialize in technologies like React.js, Next.js, and Tailwind CSS. I also develop and customize websites using Odoo for small businesses. My skill set includes AI tool integration and website automation, allowing me to create smart, user-centric digital experiences. I’ve received recognition for both leadership and communication, highlighting my ability to work effectively in teams and deliver exceptional results.";
@@ -251,3 +252,5 @@ export default function AdminPage() {
     </div>
   );
 }
+
+    

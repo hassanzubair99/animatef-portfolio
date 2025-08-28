@@ -9,6 +9,7 @@ const defaultProjects = [
     { id: 7, title: 'Crimson Stream', description: 'A feature-rich video streaming platform offering a seamless viewing experience. Browse and watch a diverse library of content with a modern and intuitive user interface.', image: 'https://i.ibb.co/kV0ptXhV/Screenshot-2025-08-08-022936.png', subtitle: "Streaming", liveUrl: "https://crimson-stream.vercel.app/", githubUrl: "https://github.com/hassanzubair99/crimson-stream" },
     { id: 8, title: 'Guardian Angle', description: 'A modern landing page with a clean and professional design, showcasing key features and user testimonials in a visually appealing layout.', image: 'https://i.ibb.co/93b9PdYy/Screenshot-2025-08-08-150238.png', subtitle: "Landing Page", liveUrl: "https://gurdian-angle.vercel.app/", githubUrl: "https://github.com/hassanzubair99/gurdian-angle" },
     { id: 9, title: 'TaskCraft 3D', description: 'TaskCraft 3D brings your to-do list to life with an immersive, animated interface. Experience the next dimension of productivity.', image: 'https://i.ibb.co/M5P7DvHh/Screenshot-2025-08-28-180916.png', subtitle: "Productivity App", liveUrl: "https://todolist-animated.vercel.app/", githubUrl: "https://github.com/hassanzubair99/TODOLIST-ANIMATED" },
+    { id: 10, title: 'Culinaria', description: 'Culinaria is an inviting, animated recipe discovery platform that offers a visually immersive way to explore culinary delights.', image: 'https://i.ibb.co/fDYsCq3/Screenshot-2024-08-30-141221.png', subtitle: "Recipe App", liveUrl: "https://recipies-jade.vercel.app/", githubUrl: "https://github.com/hassanzubair99/RECIPIES" },
 ];
 
 
@@ -73,3 +74,5 @@ export function Projects() {
     </section>
   );
 }
+
+    
