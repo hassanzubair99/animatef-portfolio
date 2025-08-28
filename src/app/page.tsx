@@ -7,7 +7,7 @@ import { Projects } from '@/components/Projects';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Code, Bot, Palette, Briefcase, DraftingCompass, Globe, User } from 'lucide-react';
-import DarkVeil from '@/components/DarkVeil';
+import Silk from '@/components/Silk';
 
 const roles = [
   { text: "Crafting Digital Universes", icon: <Globe className="inline-block mb-2" size={64} /> },
@@ -101,7 +101,17 @@ export default function Home() {
               className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" 
               aria-hidden="true"
             >
-              {isClient && <DarkVeil />}
+              {isClient && (
+                <div className="w-full h-[120vh]">
+                    <Silk
+                        speed={5}
+                        scale={1}
+                        color="#7B7481"
+                        noiseIntensity={1.5}
+                        rotation={0}
+                    />
+                </div>
+              )}
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
                 <TypingAnimation />

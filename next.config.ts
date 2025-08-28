@@ -24,6 +24,12 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+   webpack: (config) => {
+    config.externals.push({
+      'supports-color': 'supports-color',
+    });
+    return config;
+  }
 };
 
 export default nextConfig;
