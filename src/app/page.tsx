@@ -73,10 +73,8 @@ function TypingAnimation() {
 export default function Home() {
   const [loading, setLoading] = useState(true);
   const [showContent, setShowContent] = useState(false);
-  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
     if (sessionStorage.getItem('introShown')) {
       setLoading(false);
       setShowContent(true);
@@ -103,7 +101,6 @@ export default function Home() {
               className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" 
               aria-hidden="true"
             >
-              {isClient && (
                 <div className="w-full h-[120vh]">
                     <Silk
                         speed={5}
@@ -113,7 +110,6 @@ export default function Home() {
                         rotation={0}
                     />
                 </div>
-              )}
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
                 <TypingAnimation />
