@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { ProjectCard } from './ProjectCard';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { useIsMobile } from '@/hooks/use-mobile';
+import CardSwap, { Card } from './CardSwap';
+import { Button } from '@/components/ui/button';
+import { Github, ExternalLink } from 'lucide-react';
+import Image from 'next/image';
 
 const defaultProjects = [
     { id: 5, title: 'Resume Builder', description: 'An intuitive web application that helps users create professional and modern resumes with ease. Features customizable templates and a user-friendly interface.', imgSrc: 'https://i.ibb.co/p95QcnV/Screenshot-2025-08-07-233900.png', tags: ["React", "Next.js", "Vercel", "Web App"], liveUrl: "https://resume-builder-hassan.vercel.app/", githubUrl: "https://github.com/hassanzubair99/resume-builder-hassan", imgHint: "resume builder app" },
@@ -15,9 +16,10 @@ const defaultProjects = [
 
 export function Projects() {
   const [projects, setProjects] = useState(defaultProjects);
-  const isMobile = useIsMobile();
+  const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
+    setIsClient(true);
     const storedProjects = localStorage.getItem('projects');
     if (storedProjects) {
       try {
@@ -40,32 +42,55 @@ export function Projects() {
             Here are some of the projects I've worked on. Each one was a unique challenge and a learning experience.
           </p>
         </div>
-        {isMobile ? (
-           <Carousel
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-xs sm:max-w-sm mx-auto"
-          >
-            <CarouselContent>
-              {projects.map((project, index) => (
-                <CarouselItem key={index}>
-                  <div className="p-1">
-                     <ProjectCard {...project} />
-                  </div>
-                </CarouselItem>
+
+        {isClient ? (
+          <div style={{ height: '600px', position: 'relative' }}>
+            <CardSwap
+              cardDistance={60}
+              verticalDistance={70}
+              delay={5000}
+              pauseOnHover={true}
+            >
+              {projects.map((project) => (
+                <Card key={project.id}>
+                    <div className="flex flex-col h-full">
+                        <div className="relative aspect-video mb-4 rounded-t-md overflow-hidden -mt-6 -mx-6">
+                            <Image
+                                src={project.imgSrc}
+                                alt={project.title}
+                                layout="fill"
+                                objectFit="cover"
+                                data-ai-hint={project.imgHint}
+                                quality={100}
+                            />
+                        </div>
+                        <div className="flex-grow">
+                            <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+                            <p className="text-muted-foreground text-sm">{project.description}</p>
+                        </div>
+                         <div className="flex gap-4 mt-auto pt-4 w-full">
+                            {project.liveUrl && (
+                                <Button asChild className="flex-1 bg-primary hover:bg-primary/80 transition-transform hover:scale-105">
+                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                        <ExternalLink className="mr-2 h-4 w-4" /> Live Demo
+                                    </a>
+                                </Button>
+                            )}
+                            {project.githubUrl && (
+                                <Button asChild variant="outline" className="flex-1 transition-transform hover:scale-105">
+                                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                        <Github className="mr-2 h-4 w-4" /> Source
+                                    </a>
+                                </Button>
+                            )}
+                        </div>
+                    </div>
+                </Card>
               ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex"/>
-            <CarouselNext  className="hidden sm:flex"/>
-          </Carousel>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
-            {projects.map((project, index) => (
-              <ProjectCard key={index} {...project} />
-            ))}
+            </CardSwap>
           </div>
+        ) : (
+          <div className="text-center">Loading projects...</div>
         )}
       </div>
     </section>
