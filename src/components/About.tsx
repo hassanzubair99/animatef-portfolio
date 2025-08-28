@@ -3,9 +3,20 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { Badge } from '@/components/ui/badge';
+import LogoLoop from './LogoLoop';
+import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiNodedotjs, SiPrisma } from 'react-icons/si';
 
 const skills = [
   'React', 'Next.js', 'TypeScript', 'Node.js', 'GraphQL', 'Prisma', 'PostgreSQL', 'Tailwind CSS', 'Figma', 'Docker'
+];
+
+const techLogos = [
+  { node: <SiReact />, title: "React", href: "https://react.dev" },
+  { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
+  { node: <SiTypescript />, title: "TypeScript", href: "https://www.typescriptlang.org" },
+  { node: <SiTailwindcss />, title: "Tailwind CSS", href: "https://tailwindcss.com" },
+  { node: <SiNodedotjs />, title: "Node.js", href: "https://nodejs.org" },
+  { node: <SiPrisma />, title: "Prisma", href: "https://www.prisma.io/" },
 ];
 
 const defaultAboutMe = "I am Hassan Zubair, an ambitious IT Developer and AI Website Maker based in Karachi, Pakistan. With a passion for building modern, responsive, and animated websites, I specialize in technologies like React.js, Next.js, and Tailwind CSS. I also develop and customize websites using Odoo for small businesses. My skill set includes AI tool integration and website automation, allowing me to create smart, user-centric digital experiences. I’ve received recognition for both leadership and communication, highlighting my ability to work effectively in teams and deliver exceptional results.";
@@ -59,6 +70,22 @@ export function About() {
                   </Badge>
                 ))}
               </div>
+            </div>
+             <div className="mt-12">
+                <div style={{ height: 'auto', position: 'relative', overflow: 'hidden'}}>
+                  <LogoLoop
+                    logos={techLogos}
+                    speed={120}
+                    direction="left"
+                    logoHeight={40}
+                    gap={40}
+                    pauseOnHover
+                    scaleOnHover
+                    fadeOut
+                    fadeOutColor="hsl(var(--background))"
+                    ariaLabel="Technology partners"
+                  />
+                </div>
             </div>
           </div>
         </div>
