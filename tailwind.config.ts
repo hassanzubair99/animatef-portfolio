@@ -133,6 +133,10 @@ export default {
         '.text-shadow-strong': {
           textShadow: '0 0 25px hsl(var(--accent)), 0 0 5px hsl(var(--foreground) / 0.5)',
         },
+         '.bg-grid-pattern': {
+          backgroundImage: 'linear-gradient(hsl(var(--border)) 1px, transparent 1px), linear-gradient(to right, hsl(var(--border)) 1px, hsl(var(--background)) 1px)',
+          backgroundSize: '30px 30px',
+        },
       };
       addUtilities(newUtilities, ['responsive', 'hover']);
     }),

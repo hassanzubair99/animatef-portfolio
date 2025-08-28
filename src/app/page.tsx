@@ -1,15 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
 import { Header } from '@/components/Header';
 import { IntroAnimation } from '@/components/IntroAnimation';
 import { Projects } from '@/components/Projects';
 import { About } from '@/components/About';
 import { Contact } from '@/components/Contact';
 import { Code, Bot, Palette, Briefcase, DraftingCompass, Globe, User } from 'lucide-react';
-
-const Silk = dynamic(() => import('@/components/Silk'), { ssr: false });
 
 const roles = [
   { text: "Crafting Digital Universes", icon: <Globe className="inline-block mb-2" size={64} /> },
@@ -96,20 +93,17 @@ export default function Home() {
       <div className={`transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
         <Header />
         <main>
-          <div className="relative isolate pt-14 h-screen flex items-center justify-center">
+          <div className="relative isolate pt-14 h-screen flex items-center justify-center bg-grid-pattern">
              <div 
               className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" 
               aria-hidden="true"
             >
-                <div className="w-full h-[120vh]">
-                    <Silk
-                        speed={5}
-                        scale={1}
-                        color="#7B7481"
-                        noiseIntensity={1.5}
-                        rotation={0}
-                    />
-                </div>
+               <div
+                className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+                style={{
+                  clipPath: 'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)'
+                }}
+              />
             </div>
             <div className="text-center animate-fade-in-up" style={{ animationFillMode: 'forwards' }}>
                 <TypingAnimation />
