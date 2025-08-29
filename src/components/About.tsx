@@ -53,19 +53,18 @@ export function About() {
                 data-ai-hint="professional portrait"
                 className="scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
             </div>
           </div>
           <div className="lg:col-span-3 text-center lg:text-left">
             <h2 className="text-4xl md:text-5xl font-bold">About Me</h2>
-            <p className="mt-6 text-lg text-muted-foreground leading-relaxed">
+            <p className="mt-6 text-lg text-foreground/80 leading-relaxed">
               {aboutMeText}
             </p>
             <div className="mt-8">
               <h3 className="text-2xl font-semibold mb-4">My Skills</h3>
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
                 {skills.map(skill => (
-                  <Badge key={skill} className="text-sm px-4 py-2 bg-card hover:bg-card/80 border-primary transition-colors">
+                  <Badge key={skill} variant="outline" className="text-sm px-4 py-2 bg-card hover:bg-card/80 border-primary transition-colors">
                     {skill}
                   </Badge>
                 ))}
