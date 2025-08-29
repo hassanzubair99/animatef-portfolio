@@ -13,6 +13,7 @@ const defaultProjects = [
     { id: 11, title: 'Kidz Knowledge', description: 'An engaging and educational platform for kids, designed to make learning fun and interactive.', image: 'https://i.ibb.co/SDgj43Dj/Screenshot-2025-08-28-190805.png', subtitle: "Kids Learning", liveUrl: "https://kidz-knowledge.vercel.app/", githubUrl: "https://github.com/hassanzubair99/kid-knowledge" },
     { id: 12, title: 'E-commerce Platform', description: 'A fully functional e-commerce platform with a modern design, product browsing, and a seamless checkout experience.', image: 'https://i.ibb.co/0RgdNqmf/Screenshot-2025-08-29-175921.png', subtitle: "E-commerce", liveUrl: "https://e-commerce-zeta-one-62.vercel.app/" },
     { id: 13, title: 'Net Speed Checker', description: 'A simple and effective tool to quickly check your internet connection speed, providing real-time download and upload measurements.', image: 'https://i.ibb.co/r2L0rdBj/Screenshot-2025-08-29-180144.png', subtitle: 'Tool', liveUrl: 'https://net-speed-checker.vercel.app/' },
+    { id: 14, title: 'Spotify Clone', description: 'A functional clone of the Spotify web player, built to showcase expertise in creating complex user interfaces and handling media playback.', image: 'https://i.ibb.co/d4wcyKfG/Screenshot-2025-08-29-180414.png', subtitle: 'Web App', liveUrl: 'https://spotify-clone-hteg.vercel.app/home' },
 ];
 
 
@@ -77,5 +78,3 @@ export function Projects() {
     </section>
   );
 }
-
-    
